@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2014.10.15)  28 MAR 2015 10:57
+This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2015.4.7)  17 APR 2015 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -109,7 +109,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 {/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}] ) 
 Here is how much of TeX's memory you used:
  384 strings out of 495034
- 4084 string characters out of 6181676
+ 4084 string characters out of 6181678
  56568 words of memory out of 5000000
  3667 multiletter control sequences out of 15000+600000
  6728 words of font info for 24 fonts, out of 8000000 for 9000
