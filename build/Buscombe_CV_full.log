@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.14)  2 OCT 2015 20:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.14)  10 OCT 2015 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -70,6 +70,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
@@ -584,7 +589,7 @@ st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmtt8.pfb>
-Output written on build/Buscombe_CV_full.pdf (8 pages, 155064 bytes).
+Output written on build/Buscombe_CV_full.pdf (8 pages, 155109 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
