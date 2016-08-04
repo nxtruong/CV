@@ -1,18 +1,18 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2015.4.7)  31 JUL 2016 16:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.8.1)  3 AUG 2016 19:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Buscombe_CV_full.tex
 (./Buscombe_CV_full.tex
-LaTeX2e <2011/06/27>
-Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (./resume.cls
 Document Style `resume' <26 Sep 89, Dec 07>.
 Document Class: resume 2000/05/19 v1.4b Resume class
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -60,6 +60,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 33.
 
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
@@ -70,27 +75,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--162
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-
- []
-
-
-Overfull \hbox (5.05344pt too wide) in paragraph at lines 165--166
+Overfull \hbox (5.05344pt too wide) in paragraph at lines 163--164
 []\OT1/cmr/bx/n/8 Buscombe, D.\OT1/cmr/m/n/8 , sub-mit-ted, Py-Hum: Python tool
 -box for shal-low wa-ter phys-i-cal habi-tat as-sess-ment us-ing recreational-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 
  []
 
 [1
 
-{/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
 
  []
 
@@ -100,7 +105,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--177
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
@@ -124,14 +129,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 195--196
-
- []
-
 Missing character: There is no â in font cmr8!
 Missing character: There is no € in font cmr8!
 Missing character: There is no “ in font cmr8!
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
@@ -142,16 +147,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
 [2
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 221--222
 
  []
@@ -182,12 +187,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 231--232
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
@@ -197,7 +202,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 249--250
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
@@ -216,11 +221,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
-
- []
-
 [3
 
 
@@ -228,12 +228,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
  []
 
@@ -282,17 +287,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 315--316
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
 [4
 
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
@@ -345,17 +350,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 359--360
 Missing character: There is no â in font cmr8!
 Missing character: There is no € in font cmr8!
 Missing character: There is no ™ in font cmr8!
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--367
-
- []
-
 [5
 
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 366--367
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 368--369
 
  []
@@ -403,7 +408,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
 
+[6
 
+
+
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 422--423
 
  []
@@ -413,14 +425,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 423--424
 
  []
 
-[6
 
-
-
-
-
-
-]
 Underfull \hbox (badness 10000) in paragraph at lines 424--425
 
  []
@@ -522,12 +527,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
-
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 474--475
 
  []
 
-[7]
+
 Underfull \hbox (badness 10000) in paragraph at lines 475--476
 
  []
@@ -579,10 +584,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
 [8] ) 
 Here is how much of TeX's memory you used:
- 403 strings out of 495034
- 4286 string characters out of 6181678
- 58568 words of memory out of 5000000
- 3678 multiletter control sequences out of 15000+600000
+ 403 strings out of 494953
+ 4287 string characters out of 6180978
+ 59080 words of memory out of 5000000
+ 3753 multiletter control sequences out of 15000+600000
  9470 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  29i,6n,21p,1067b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -594,7 +599,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsl8.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmtt8.pfb>
-Output written on build/Buscombe_CV_full.pdf (8 pages, 145455 bytes).
+Output written on build/Buscombe_CV_full.pdf (8 pages, 145718 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
