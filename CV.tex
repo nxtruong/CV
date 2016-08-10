@@ -1,0 +1,1060 @@
+% Adapted from layout by GaelVaroquaux
+%  http://gael-varoquaux.info
+%
+
+\documentclass{article} %{{{--
+
+\usepackage[paper=a4paper,
+	    top=2cm,
+	    left=1.35cm,
+	    width=18.2cm,
+	    bottom=2cm
+	    ]{geometry}
+            %margin=4cm,
+
+\usepackage{calc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{color,hyperref}
+\usepackage{graphicx}
+\usepackage{multicol}
+
+\usepackage{wasysym} % For phone symbol
+\usepackage{url}
+
+\def\bf{\bfseries}
+\def\sf{\sffamily}
+\def\sl{\slshape}
+% Semi condensed bold
+
+\definecolor{deep_blue}{rgb}{0,.2,.5}
+\definecolor{dark_blue}{rgb}{0,.1,.3}
+\definecolor{myblue}{rgb}{.01,0.21,0.71}
+\definecolor{gray}{rgb}{.5, .5, .5}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  urlcolor=myblue,
+  %linkcolor=darkblue,
+  %citecolor=darkgreen,
+  }
+
+
+%% This gives us fun enumeration environments.
+\usepackage{enumitem}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% Reference the last page in the page number
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+%\fancyfootoffset{\marginparsep}+\marginparwidth}
+\lfoot{
+  \hspace{-2\marginparsep}
+  \,\hfill \arabic{page} of \protect\pageref*{LastPage}  \hfill \,\\
+  \,\hfill {\footnotesize \textcolor{gray}{updated August 2016~~~~~}} \hfill\,
+}
+
+\newcommand{\mydate}[1]{{\textcolor{gray}{\footnotesize #1}}}
+
+
+\newcommand{\makeheading}[1]%
+        {%\hspace*{-\marginparsep minus \marginparwidth}%
+         %\begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+         \begin{minipage}[t]{\textwidth}%
+                {\Large #1}\\%[-0.5\baselineskip]%
+                \vskip 0.2\baselineskip
+                 \color{deep_blue}{\rule{\columnwidth}{3pt}}%
+         \end{minipage}
+	 \vskip 1.\baselineskip plus 2\baselineskip minus 1.\baselineskip
+	}
+
+\newlength\sidebarwidth
+\setlength\sidebarwidth{3.6cm}
+
+\newcommand{\topic}[3][]%
+	 {\pagebreak[2]%
+	 \vskip 1.5\baselineskip plus 3\baselineskip minus 0.7\baselineskip
+	 \begin{minipage}{\textwidth}
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft \bf\sf
+	 \color{deep_blue}{\Large #2}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 \nopagebreak{\color{deep_blue}%
+		    \rule{0pt}{\baselineskip}%
+		    \rule{\linewidth}{2.5pt}%
+		    \llap{\raisebox{.3\baselineskip}{\sf #1}}%
+		    \vspace*{.1\baselineskip}%
+		    }%
+	 #3%
+	 \end{minipage}
+	 \end{minipage}}
+
+\newcommand{\smalltopic}[2]%
+	 {\pagebreak[2]%
+	 \vskip 1\baselineskip plus 2\baselineskip minus 0.3\baselineskip
+	 \begin{minipage}{\textwidth}
+	 %\hspace{-\marginparsep minus \marginparwidth}%
+         \phantomsection\addcontentsline{toc}{subsection}{#1}%
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft \bf\sf %\vskip -0.5\baselineskip
+	 \textcolor{dark_blue}{\large #1}%
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 \nopagebreak{%
+	    %\vspace{-.7\baselineskip}%
+	    \rule{\linewidth}{.5pt}%
+	    \vspace{.1\baselineskip}%
+	    }%
+	    #2
+	 \end{minipage}
+	 \end{minipage}}
+
+\newcommand{\subtopic}[3][]
+	 {\begin{minipage}{\textwidth}
+	 \vspace*{.4\baselineskip}
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+	 % Super posh: using semi-bold condensed fonts. Works only with
+	 % lmodern
+         \raggedleft {\sf\fontseries{sbc}\selectfont #2}
+	 %{\small\sl\\[-0.2\baselineskip] #1}
+         {\\[-0.2\baselineskip] \textcolor{gray}{\footnotesize #1}}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 #3%
+	 \end{minipage}%
+	 \vspace*{.2\baselineskip plus 1\baselineskip minus
+	 .2\baselineskip}%
+	 \end{minipage}}
+
+\newcommand{\dateonly}[2][]
+	 {\begin{minipage}{\textwidth}
+	 \vspace*{.4\baselineskip}
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft {~}
+         {\\[-\baselineskip] \textcolor{gray}{\footnotesize #1}}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 #2%
+	 \end{minipage}%
+	 \vspace*{.2\baselineskip plus 1\baselineskip minus
+	 .2\baselineskip}%
+	 \end{minipage}}
+
+\newcommand{\sidenote}[2]
+	 {\vspace*{-.2\baselineskip}\begin{minipage}{\textwidth}
+         \nopagebreak\hspace{0in}%
+         \nopagebreak\begin{minipage}[t]{\sidebarwidth - .2cm}
+         \raggedleft {#1}
+	 \end{minipage}%
+	 \hfill
+	 \begin{minipage}[t]{\linewidth - \sidebarwidth}
+	 #2%
+	 \end{minipage}%
+	 \vspace*{.5\baselineskip plus 1\baselineskip minus
+	 .2\baselineskip}%
+	 \end{minipage}}
+
+% New lists environments
+\newlist{outerlist}{itemize}{1}
+\setlist[outerlist]{font=\sffamily\bfseries, label=\textbullet}
+\setitemize{topsep=0ex, partopsep=0ex}
+\setdescription{font=\normalfont\sffamily\bfseries, itemsep=.5ex,
+    parsep=.5ex, leftmargin=3ex}
+
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+\def\mydot{\textcolor{deep_blue}{\rule{1ex}{1ex}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--}}}%
+\begin{document}
+\makeheading{
+\begin{minipage}[B]{0.5\textwidth}
+    %\vfill
+    \vspace*{-.5\baselineskip}%
+    \parbox{10cm}{
+	\hskip -0.1cm
+	{\Huge\bf\sf \color{deep_blue} D\huge \hskip -0.05cm ANIEL %
+	 \Huge \color{deep_blue} B\huge \hskip -0.05cm USCOMBE}
+	\\[-.1\baselineskip]
+	{\bf\sf Research Geologist}
+        \\
+        U.S. Geological Survey
+    }
+\end{minipage}
+\hfill
+\begin{minipage}[B]{8cm}
+    \raggedleft
+    \,\vskip -1em
+    \small
+        Grand Canyon Monitoring and Research Center\\
+        2255 N Gemini Drive\\
+        Flagstaff AZ 86001\\
+	{\texttt {dbuscombe@usgs.gov}}%
+    \vspace*{-.5\baselineskip}%
+\end{minipage}
+}
+
+%\begin{center}
+%\begin{minipage}{15cm}
+\begin{multicols}{2}
+\sloppy
+
+%\textcolor{deep_blue}{\bf\sf Research interests}:
+%Cosmology, weak lensing, data mining and automated learning algorithms for
+%large astronomical data sets.
+
+\begin{itemize}[leftmargin=2ex, itemsep=0ex]
+\item[\mydot]
+I am part of the Grand Canyon Monitoring and Research Center, an
+interdisciplinary program within the U.S. Geological Survey carrying out basic and applied research into management of regulated rivers in the Western United States.
+I work on research in sedimentology, geomorphology, geostatistics, geophysics, and
+scalable computation.
+
+\item[\mydot]
+Previously I was an a post-doctoral fellow,
+working in the Marine Science departments
+at the University of Plymouth, and before that at the University of California Santa Cruz. During those fellowships, I worked on
+sediment transport and hydrodynamics in nearshore and coastal shelf environments.
+
+\item[\mydot]
+My PhD research at the University of Plymouth (2004 - 2008) focused on the morphodynamics and sediment dynamics of macrotidal gravel beaches.
+
+\item[\mydot]
+I am interested in encouraging reproducible and open research practices
+in geosciences.  To this end I spend significant time developing a variety of open-source
+scientific computing tools.
+
+\end{itemize}
+\end{multicols}
+\vspace*{-1.5em}
+\fussy
+%\end{minipage}
+%\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{E \large\hskip -1ex DUCATION}{~}
+
+    \subtopic[2004-2008]{\bf PhD}{
+        School of Geography, University of Plymouth, Plymouth, UK\\
+        advised by Gerd Masselink and Mark Davidson (School of Marine Science and Engineering)\\
+	Thesis: \href{http://adsabs.harvard.edu/abs/2013arXiv1301.6657V}{
+          Morphodynamics, Sediment Dynamics and Sedimentation of a Gravel Beach}
+    }
+
+    \subtopic[2000-2003]{\bf BSc}{
+      Bowland College, Lancaster University, Lancaster, UK\\
+      Major: Physical Geography; Minors: Environmental Science \& Biological Science\\
+			First class, with honours.
+		}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{E \large\hskip -1ex XPERIENCE}{~}
+
+\vspace*{-0.5\baselineskip}
+\smalltopic{Employment}{}
+
+    \subtopic[2012--Present]{U.S. Geological Survey}{
+      Research Geologist.\\
+      Grand Canyon Monitoring \& Research Center, U.S. Geological Survey.\\
+			Supervised by Dr Paul Grams.}
+
+    \subtopic[2009--2012]{UoP Marine Science}{
+      NERC post-doctoral fellowship.\\
+      Department of Marine Science \& Engineering, University of Plymouth, UK.\\
+      Supervised by Dr Daniel Conley \& Dr Alex Nimmo-Smith.}
+
+    \subtopic[2008--2009]{UCSC Marine Science}{
+      Postdoctoral Researcher, U.S. Geological Survey\\
+      \& Department of Earth \& Planetary Sciences, University of California Santa Cruz.\\
+      Supervised by Dr David Rubin \& Dr Jessica Lacy.}
+
+    \subtopic[2008--2011]{UoP Marine Ecology}{
+      Computer Programming Contractor.\\
+			Marine Biology \& Ecology Research Centre, University of Plymouth, UK.\\
+			Supervised by Dr Kerry Howell.}
+
+    \subtopic[2008]{UoP BARDEX}{
+		Research Assistant, School of Geography, University of Plymouth, UK.\\
+		BARDEX (Barrier Dynamics Experiment), an EU Hydralab III-funded laboratory wave flume project.
+		Supervised by Prof. Jon Williams \& Prof. Gerhard Masselink.
+    }
+
+		\subtopic[2007--2008]{UoP WHISSP}{
+		Research Assistant, School of Marine Science \& Engineering, University of Plymouth, UK.\\
+		WHISSP (Wave Hub Impacts on Seabed and Shoreline Processes), an EU-funded field-based project studying the effects of marine renewable energy devices on the shoreline.
+		Supervised by Prof. Jon Williams \& Prof. Gerhard Masselink.
+    }
+
+    \subtopic[2004--2008]{UoP Geography}{
+      Associate Lecturer and Demonstrator (part-time).\\
+			School of Geography, University of Plymouth, UK.
+    }
+
+    \subtopic[2003--2004]{FSC}{
+      Assistant tutor.\\
+			Field Studies Council, Castle Head, Grange-over-Sands, UK.
+    }
+
+
+\smalltopic{Teaching}{}
+
+    \subtopic[Fall 2015]{EES 698-1}{
+      Topics in Fluvial Geomorphology\\
+      {\it guest lecturer -- University of Northern Arizona}}
+
+    \subtopic[Fall 2014, 2015]{EES 529}{
+      Applied Remote Sensing\\
+      {\it guest lecturer -- University of Northern Arizona}}
+
+    \subtopic[2010 -- 2012]{OS204}{
+      Waves, Tides and Coastal Dynamics\\
+      {\it guest lecturer -- University of Plymouth}}
+
+    \subtopic[2010 -- 2012]{OS311}{
+      Modelling Ocean Processes\\
+      {\it guest lecturer -- University of Plymouth}}
+
+    \subtopic[2004--2008]{Geography}{
+      Introductory statistics, Glacial Geomorphology, Coastal Geomorphology\\
+      {\it teaching assistant -- University of Plymouth}}
+
+    \subtopic[2003--2004]{FSC}{
+      Field- and classroom-based ecology, geology, environmental sciences\\
+      {\it teaching assistant -- Field Studies Council Castle Head}}
+
+
+\smalltopic{Service}{}
+
+  \subtopic[2007-Present]{Journal Reviewer}{
+     Arctic; Continental Shelf Research; Earth Surface Processes \& Landforms; Geo-Marine Letters; Geophysical Research Letters; Journal of Hydraulic Engineering; Journal of Marine Science \& Engineering; Journal of Mountain Science; Journal of Sedimentary Research; Marine Geology; Sedimentology; Sedimentary Geology; Water Resources Research.
+   }
+
+   \subtopic[2016]{Software Carpentry}{
+     Lead organizer for this 3 day-long, 30-person workshop at U.S. Geological Survey.
+   }
+
+   \subtopic[2015]{MBES in Rivers}{
+     Lead organizer for 2nd Multibeam in Rivers Workshop, a 3 day-long, 30-person workshop at U.S. Geological Survey.
+   }
+
+   \subtopic[2013]{AGU}{
+     Co-convener of the session, EP010. Fluvial sediment budgets: Can we do better? American Geophysical Union Fall Meeting, December 2013
+   }
+
+   \subtopic[2007]{AGU}{
+     Co-convener of the session, H60: Linking sediment supply, bed-sediment particle size, sediment transport, and bed morphology in fluvial, marine, and aeolian settings. American Geophysical Union Fall Meeting, December 2007
+   }
+
+   \subtopic[2007]{YCSEC}{
+     On the organising committee for the Young Coastal Scientist and Engineers Conference, 2007 (YCSEC 2007)  hosted by the School of Geography at the University of Plymouth 19-21 April 2007.
+   }
+
+   \subtopic[2005]{QRA}{
+     On the organising committee for the Quaternary Research Association's 4th International Postgraduate Symposium, hosted by the School of Geography at the University of Plymouth 31st August - 2nd September 2005.
+   }
+
+
+\smalltopic{Mentoring}{}
+
+    \subtopic[2015-Present]{Ryan Lima}{
+	  PhD, Northern Arizona University School of Earth Sciences \& Environmental Sustainability.\\
+		Co-supervised with Dr Temuulen Sankey.
+	}
+
+    \subtopic[2015-Present]{Daniel Hamill}{
+      MS, Utah State University Department of Watershed Sciences.\\
+			Co-supervised with Dr Joseph Wheaton.
+    }
+
+    \subtopic[2014-Present]{Rebecca Rossi}{
+		MS, Utah State University Department of Watershed Sciences.\\
+		Co-supervised with Dr Joseph Wheaton.
+		}
+
+    \subtopic[2014-Present]{Thomas Ashley}{
+      PhD, School of Geology and Geophysics, University of Wyoming.\\
+			Co-supervised with Dr Brandon McElroy.
+    }
+
+    \subtopic[2011--2012]{Martin Meoli}{
+      MSc Applied Marine Science, School of Marine Science \& Engineering, University of Plymouth\\
+			Co-supervised with Dr Alex Nimmo-Smith.
+    }
+
+    \subtopic[2011--2012]{James Sawyer}{
+		MSc Applied Marine Science, School of Marine Science \& Engineering, University of Plymouth\\
+		Co-supervised with Dr Daniel Conley.
+    }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{A \large\hskip -1ex WARDS \& HONORS}{~}
+
+\subtopic[March 2016]{USGS "What's the Big Idea?""}{
+	Research featured in the video \href{https://www.youtube.com/watch?v=zNqpuKf2O7o}{What's the Big Idea? —Using Sound to Remotely Sense the Riverbed}
+on the YouTube channel of the U.S. Geological Survey
+}
+
+    \subtopic[July 2015]{American Geophysical Union Research Spotlight}{
+      Research featured in the article \href{https://eos.org/research-spotlights/using-sound-waves-to-study-grand-canyon-sediment}{Using Sound Waves to Study Grand Canyon Sediment}
+      in EOS Earth and Space Science News
+    }
+
+		\subtopic[2015]{Elsevier "Excellence in Peer Review" Award}{
+      for the Elsevier journal, {\it Sedimentary Geology}
+    }
+
+    \subtopic[September 2012]{JGR-Oceans Editor's Highlight}{
+      Research featured in the article \href{http://agupubs.onlinelibrary.wiley.com/agu/article/10.1029/2012JC007954/editor-highlight/}{Novel observations of currents and drag generated by a tsunami}
+			published in the Journal of Geophysical Research - Oceans.
+    }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{C \large\hskip -1ex OMPUTING}{
+  I am an active developer and maintainer of several
+  scientific computing packages.
+  See my github profile
+  (\href{http://github.com/dbuscombe-usgs}{http://github.com/dbuscombe-usgs})
+  for details.}
+
+%\vspace*{-0.5\baselineskip}
+\smalltopic{Skills}{
+
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, labelindent=-2ex, parsep=.5ex]
+    \item[\mydot] Experienced open source developer, with a specialization in
+      scientific computing, including visualization, geospatial statistics, signal processing, image processing
+      and machine learning.
+    \item[\mydot] Expert in the Python Language and extensions such as Cython;
+      expert in the MATLAB language, experience writing C, C++, and Fortran code.
+    \item[\mydot] Experience with a variety of tools and languages, including
+      bash, csh, \LaTeX{}, HTML, Git, Linux, virtual machines, virtual environments, auto-deployment of software packages (PyPI, SWIG, Distutils, conda), distributed, parallel, out-of-core and cloud computing.
+    \item[\mydot] Experience with Hydrodynamic modelling software, including the \href{http://www.gotm.net/index.php}{General Ocean Turbulence Model}; Simulating Waves Nearshore (\href{http://www.swan.tudelft.nl/}{SWAN}); Simulating Waves 'til Shore (\href{http://swash.sourceforge.net/features/features.htm}{SWASH}).
+    \item[\mydot] Experience with Hydrographic surveying and mapping software, including \href{http://gmt.soest.hawaii.edu/}{Generic Mapping Tools}, \href{http://www.ldeo.columbia.edu/res/pi/MB-System/}{MB-System} and \href{www.hypack.com}{HYPACK}, GIS, and geospatial libaries such as GDAL, Mapbox and Proj-4.
+  \end{itemize}
+
+}
+
+\smalltopic{Major Software Projects}{}
+
+   \subtopic[2010--Present]{DGS}{
+     Software for automated analyses of grain size from images of sediment. Source code currently available in Matlab and Python.}
+
+   \subtopic[2014--Present]{PyHum}{
+  Software for reading, processing and analysis of Humminbird sidescan data. Source code available in Python/Cython.
+   }
+
+   \subtopic[2015--Present]{pysesa}{
+Python program for spatially explicit spectral analysis. Software for spatially explicit analyis of point clouds and spatially distributed data. Source code available in Python. 
+   }
+
+   \subtopic[2011--2012]{Sand Simulation Toolbox}{
+Software for generating 3D discrete particle models consisting of realistic particles (with a size- and shape-distribution) with user-defined properties. Source code available in Matlab. 
+   }
+
+   \subtopic[20012]{MATSCAT}{
+Software for analysis of multiple-frequency acoustic backscatter for suspended sediment concentration and particle size. Source code available in Matlab.}
+
+   \subtopic[2008--2011]{Benthic Analysis Tool}{
+Software for the semi-automation of species identification and measurement in deep-sea ROV/drop frame images. Source code available in Matlab.
+   }
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{S \large\hskip -1ex ELECTED TALKS}{\small \\{\textcolor{gray}{\it $**$= invited talk}}}
+
+%\smalltopic{Astronomy}{}
+
+  \dateonly[July 2016]{
+      {\it Stochasticity of riverbed backscattering, with implications for acoustical classification of non-cohesive sediment using multibeam sonar}\\
+    8th International Conference on Fluvial Hydraulics, St. Louis, MO
+  }
+
+  \dateonly[**January 2016]{
+      {\it The Digital Grain Size Web Computing Application}\\
+      USGS Center for Data Integration, Denver, CO
+  }
+
+  \dateonly[**January 2016]{
+      {\it Observations of sand dune migration on the Colorado River in Grand Canyon}\\
+      Glen Canyon Dam Adaptive Management Program Adaptive Management Work Group Meeting, Phoenix, AZ
+  }
+
+  \dateonly[April 2015]{
+      {\it Considerations for unsupervised riverbed sediment characterization using low-cost sidescan sonar: Examples from the Colorado River, AZ and the Penobscot River, ME.}\\
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, NV
+  }
+
+  \dateonly[April 2015]{
+      {\it Using oblique digital photography for alluvial sandbar monitoring and low-cost change detection.}\\
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, NV
+  }
+
+  \dateonly[April 2015]{
+      {\it Hydroacoustic signatures of Colorado riverbed sediments in Marble and Grand Canyons using multibeam sonar}\\
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, NV
+  }
+
+  \dateonly[March 2015]{
+      {\it Acoustic and topographic sediment classification in Lower Marble Canyon}\\
+      2nd MBES in Rivers Workshop, USGS Flagstaff, AZ
+  }
+
+  \dateonly[March 2015]{
+      {\it Characterizing sand dune migration on the Colorado River in Western Grand Canyon using repeat multibeam mapping}\\
+      2nd MBES in Rivers Workshop, USGS Flagstaff, AZ
+  }
+
+  \dateonly[March 2015]{
+      {\it Towards automated substrate mapping with low-cost sidescan sonar}\\
+      2nd MBES in Rivers Workshop, USGS Flagstaff, AZ
+  }
+
+  \dateonly[**February 2015]{
+      {\it The Digital Grain Size Project: Past, Present and Future}\\
+      USGS Coastal and Marine Geology, Woods Hole, MA
+  }
+
+  \dateonly[December 2014]{
+      {\it Topographic and acoustic estimates of grain-scale roughness from high-resolution multibeam echo-sounder: examples from the Colorado River in Marble and Grand Canyons}\\
+      American Geophysical Union Fall Meeting, San Francisco, CA
+  }
+
+  \dateonly[**August 2014]{
+      {\it Measuring bed sediments for improved sediment budgets and physical habitat assessment}\\
+      Glen Canyon Dam Adaptive Management Program Adaptive Management Work Group Meeting, Flagstaff, AZ
+  }
+
+  \dateonly[**February 2014]{
+      {\it Bed Sediment Classification Using High-Frequency Acoustic Backscatter}\\
+      Multibeam in Rivers Summit, Utah State University, Logan, UT
+  }
+
+  \dateonly[December 2013]{
+      {\it Acoustic Scattering by an Heterogeneous River Bed: Relationship to Bathymetry and Implications for Sediment Classification using Multibeam Echosounder Data}\\
+      American Geophysical Union Fall Meeting, San Francisco, CA
+  }
+
+  \dateonly[July 2012]{
+      {\it Schmidt number of sand suspensions under oscillating-grid turbulence}\\
+      33rd International Conference on Coastal Engineering, Santander, Spain
+  }
+
+  \dateonly[**July 2012]{
+      {\it Digital Grain Size}\\
+      British Geological Survey, Marine Geosciences Division, Edinburgh, UK
+  }
+
+  \dateonly[**February 2012]{
+      {\it Nearshore Sediment Transport Through the Looking Glass}\\
+      Grand Canyon Monitoring and Research Center, Flagstaff, AZ
+  }
+
+  \dateonly[February 2012]{
+      {\it Co-variation of intertidal morphology, bedforms and grain size on a macrotidal sand beach: Praa Sands, UK}\\
+      Ocean Sciences 2012, Salt Lake City, UT
+  }
+
+  \dateonly[December 2011]{
+      {\it How do you tell how big something is without direct measurement? Estimating grain size using an image's spectrum}\\
+      American Geophysical Union Fall Meeting, San Francisco, CA
+  }
+
+  \dateonly[November 2010]{
+      {\it Hourly Measurements of Grain-Size from the Inner Continental Shelf Seabed Using a Fully-Automated, Hydraulically-Controlled Underwater Video Microscope}\\
+      Particles in Europe 2010, Villefranche-Sur-Mer, France
+  }
+
+  \dateonly[June 2010]{
+      {\it An automated and 'universal' method for measuring mean grain size from a digital image of sediment}\\
+      9th Federal Interagency Sedimentation Conference, Las Vegas, NV
+  }
+
+  \dateonly[February 2010]{
+      {\it Modeling sand resuspension and stratification in turbulent nearshore flows: sensitivity to grain size distribution}\\
+      Ocean Sciences 2010, Portland, OR
+    }
+
+  \dateonly[**February 2010]{
+      {\it Turbulence, Sediment Stratification and Altered Resuspension under Waves}\\
+      Centre for Coastal Science and Engineering, University of Plymouth, UK
+    }
+
+  \dateonly[**January 2009]{
+    {\it Morphodynamics and sediment dynamics of a macrotidal gravel beach}\\
+    Coastal and Marine Geology, United States Geological Survey, Santa Cruz, CA
+  }
+
+  \dateonly[**October 2008]{
+    {\it Optical sensing of gravel sediment transport and characteristics: recent advances and future challenges.}\\
+    Lancaster University Environmental Imaging Network, Lancaster University, UK
+  }
+
+  \dateonly[September 2008]{
+      {\it Granular Properties from Digital Images of Sediment: Implications for Coastal Sediment Transport Modelling}\\
+      31st International Conference on Coastal Engineering (ICCE), Hamburg, Germany
+  }
+
+  \dateonly[December 2007]{
+      {\it The relationship between sediment properties and sedimentation patterns on a macrotidal gravel beach over a semi lunar tidal cycle}\\
+      American Geophysical Union Fall Meeting, San Francisco, CA
+  }
+
+  \dateonly[**November 2007]{
+    {\it A year in the life of Slapton Sands - but was it a typical year?}\\
+    Slapton Research Seminar, Field Studies Council, Slapton Ley, UK
+  }
+
+  \dateonly[May 2007]{
+      {\it Field observations of step dynamics on a macrotidal gravel beach}\\
+      Coastal Sediments 2007, New Orleans, LA
+  }
+
+  \dateonly[**December 2006]{
+    {\it Field observations of morphological change and sediment dynamics from the nearshore of a gravel beach}\\
+    Centre for Coastal Dynamics and Engineering (C-CoDE), University of Plymouth
+  }
+
+  \dateonly[**November 2006]{
+    {\it A view from the beach}\\
+    Slapton Research Seminar, Field Studies Council, Slapton Ley, UK
+  }
+
+  \dateonly[**December 2004]{
+    {\it A tale of two storms}\\
+    Slapton Research Seminar, Field Studies Council, Slapton Ley, UK
+  }
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{G \large\hskip -1ex RANTS}{~}
+
+
+\subtopic[$\$$200,000]{USGS Mendenhall post-doctoral fellowship}{
+Co-investigator: T. Sankey (PI), P. Grams, A. East, D. Buscombe., T. Sankey, (2015 – 2017). The fluvial-aeolian- hillslope continuum: measurement and modeling of topography and vegetation to inform landscape-scale connectivity for sediment in river valley ecosystems
+}
+
+\subtopic[$\$$46,417]{USGS Center for Data Integration}{
+Principal-Investigator (2015 - 2016). The digital grain size web and mobile computing application
+}
+
+\subtopic[$\$$48,994]{USGS Innovation Fund}{
+Principal-Investigator (2015 - 2016). LOBOS (Limnological and Oceanographic Benthic Observation System): The next generation dual-scale submersible benthic imaging system. Jointly funded by the USGS Innovation Fund ($\$$16,497), the Innovation Center for Earth Science Director's Fund ($\$$17,497) and the USGS Southwest Biological Science Center ($\$$15,000) 
+}
+
+\subtopic[$\$$4,253,400]{Glen Canyon Dam Adaptive Management Work Group}{
+Co-Investigator (multiple PIs – J. Schmidt and others), (2015 - 2017). Sandbars and sediment storage dynamics: long-term monitoring and research at the site, research and ecosystem scales. Grand Canyon Monitoring and Research Center Triennial Work Plan
+}
+
+\subtopic[$\$$232,016]{National Park Service}{
+Co-Investigator (multiple PIs – P.E. Grams and others), (2014 - 2017). Geomorphic Processes and Relations Among Flow Regime, Sediment Flux and Resource Conditions on the Green River in Canyonlands National Park
+}
+
+\subtopic[$\$$2,911,400]{Glen Canyon Dam Adaptive Management Work Group}{
+Co-Investigator (multiple PIs – J. Schmidt and others), (2013 - 2014). Sandbars and sediment storage dynamics: long-term monitoring and research at the site, research and ecosystem scales. Grand Canyon Monitoring and Research Center Biennial Work Plan
+}
+
+\subtopic[$\pounds$240,000]{Engineering and Physical Sciences Research Council, UK}{
+Co-Investigator; G. Masselink (PI), D.C. Conley, D. Buscombe., (2012 - 2014). Proto-type Experiment and Numerical Modelling of Energetic Sediment Transport under Waves (PESTS). EPSRC EP/K000306/1.
+}
+
+\subtopic[$\pounds$250]{Plymouth Marine Science Education Fund}{
+Principal-Investigator (2008). Travel grant to attend and present at ICCE Hamburg 2008
+}
+
+\subtopic[$\pounds$150]{Challenger Society for Marine Science}{
+Principal-Investigator (2008). Travel grant to attend and present at ICCE Hamburg 2008
+}
+
+\subtopic[$\$$500]{Society for Sedimentary Geology Grant}{
+Principal-Investigator (2008). President's Fund to investigate nearshore bedload transport and bedforms with stereo underwater video cameras
+}
+
+\subtopic[$\$$2000]{International Association for Mathematical Geology}{
+Principal-Investigator (2008). Grant to develop and trial algorithms for quantification of granular properties and coarse-grain sediment transport from images of the sea bed
+}
+
+\subtopic[700 euros]{International Association of Sedimentologists}{
+Principal-Investigator (2008). Grant to investigate nearshore bedload transport and bedforms with stereo underwater video cameras
+}
+
+\subtopic[$\$$600]{American Geophysical Union}{
+Principal-Investigator (2007). Travel Grant, to attend the AGU 2007 Fall Meeting in San Francisco, CA
+}
+
+\subtopic[$\pounds$300]{British Geomorphological Society}{
+Principal-Investigator (2007). Postgraduate award, to attend and present at Coastal Sediments 2007, in New Orleans, LA
+}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\topic{P \large\hskip -1ex UBLICATIONS}{~}
+
+\newcounter{PubNumber}
+\newcommand{\publication}{\item[{\bf \textcolor{myblue}{[\stepcounter{PubNumber}\arabic{PubNumber}]}}]}
+
+
+\subtopic{\hspace*{-3ex} 2016}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      D. Hamill {\sl et al.}
+      {\sl Towards bed texture change detection in large rivers from repeat imaging using recreational grade sidescan sonar}.
+      Proceedings of the 8th International Conference on Fluvial Hydraulics, St. Louis, Missouri, July 2016.
+
+    \publication
+      D. Buscombe \& P.E. Grams.
+      {\sl Stochasticity of riverbed backscattering, with implications for acoustical classification of non-cohesive sediment using multibeam sonar}.
+      Proceedings of the 8th International Conference on Fluvial Hydraulics, St. Louis, Missouri, July 2016.
+
+    \publication
+      D. Buscombe.
+      {\sl Spatially explicit spectral analysis of point clouds and geospatial data}.
+      COMPUTERS \& GEOSCIENCES 86:92--108, 2016.
+
+    \end{itemize}
+}
+
+
+\subtopic{\hspace*{-3ex} 2015}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Automated riverbed sediment classification using low-cost sidescan sonar}.
+      JOURNAL OF HYDRAULIC ENGINEERING, 10.1061/(ASCE)HY.1943-7900.0001079, 06015019, 2015.
+
+    \publication
+      E.J. Davies {\sl et al.}
+      {\sl A Evaluating Unsupervised Methods to Size and Classify Suspended Particles using Digital in-line Holography}.
+      JOURNAL OF ATMOSPHERIC \& OCEANOGRAPHIC TECHNOLOGY 32:1241--1256, 2015.
+
+    \publication
+      P.E. Grams {\sl et al.}
+      {\sl Use of Flux and Morphologic Sediment Budgets for Sandbar Monitoring on the Colorado River in Marble Canyon, Arizona}.
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, April, 2015.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Hydroacoustic signatures of Colorado riverbed sediments in Marble and Grand Canyons using multibeam sonar}.
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, April, 2015.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Considerations for unsupervised riverbed sediment characterization using low-cost sidescan sonar: Examples from the Colorado River, AZ and the Penobscot River, ME}.
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, April, 2015.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Using oblique digital photography for alluvial sandbar monitoring and low-cost change detection}.
+      Proceedings of the 10th Federal Interagency Sedimentation Conference, Reno, April, 2015.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2014}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      J.A. Puleo {\sl et al.}
+      {\sl A Comprehensive Field Study of Swash-Zone Processes, Part 1: Experimental Design with Examples of Hydrodynamic and Sediment Transport Measurements}.
+      JOURNAL OF WATERWAY, PORT, COASTAL, \& OCEAN ENGINEERING 140:29–42, 2014.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Autonomous bed-sediment imaging-systems for revealing temporal variability of grain size}.
+      LIMNOLOGY \& OCEANOGRAPHY: METHODS 12:390 - 406, 2014.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Characterizing riverbed sediment using high-frequency acoustics 1: Spectral properties of scattering}.
+      JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE 119:F003189, 2014.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Characterizing riverbed sediment using high-frequency acoustics 2: Scattering signatures of Colorado River bed sediment in Marble and Grand Canyons}.
+      JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE 119:F003191, 2014.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2013}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      D. Buscombe.
+      {\sl Transferable Wavelet Method for Grain Size-Distribution from Images of Sediment Surfaces and Thin Sections, and Other Natural Granular Patterns}.
+      SEDIMENTOLOGY 60:1709--1732, 2013.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2012}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      J. Williams {\sl et al.}
+      {\sl Barrier Dynamics Experiment (BARDEX): Aims, Design and Procedures}.
+      COASTAL ENGINEERING 63:3-12, 2012.
+
+    \publication
+      D. Buscombe \& D. Conley
+      {\sl Effective Shear Stress of Graded Sediment}.
+      WATER RESOURCES RESEARCH, 48:W05506, 2012.
+
+    \publication
+      D. Buscombe \& D.M. Rubin.
+      {\sl Advances in the Simulation and Automated Measurement of Granular Material, Part 1: Simulations}.
+      JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE 117:F02001, 2012.
+
+    \publication
+      D. Buscombe \& D.M. Rubin.
+      {\sl Advances in the Simulation and Automated Measurement of Granular Material, Part 2: Direct Measures of Particle Properties}.
+      JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE 117:F02002, 2012.
+
+    \publication
+      J.R. Lacy {\sl et al.}
+      {\sl Currents and sediment transport induced by a tsunami far from its source}.
+      JOURNAL OF GEOPHYSICAL RESEARCH - OCEANS 117:C09028, 2012.
+
+    \publication
+      J. A. Puleo {\sl et al.}
+      {\sl Comprehensive study of swash-zone hydrodynamics and sediment transport}.
+      Proceedings of the 33rd International Conference on Coastal Engineering, Santander, July 2012.
+
+    \publication
+      D. Buscombe \& D. Conley
+      {\sl Schmidt number of sand suspensions under oscillating-grid turbulence}.
+      Proceedings of the 33rd International Conference on Coastal Engineering, Santander, July 2012.
+
+    \publication
+      D. Conley {\sl et al.}
+      {\sl Use of digital holographic cameras to examine the measurement and understanding of sediment suspension in the nearshore}.
+      Proceedings of the 33rd International Conference on Coastal Engineering, Santander, July 2012.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2010}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Universal Approximation of Grain Size from Images of Non-Cohesive Sediment}.
+      JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE 115:F02015, 2010.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl An automated and 'universal' method for measuring mean grain size from a digital image of sediment}.
+      Proceedings of the 9th Federal Interagency Sedimentation Conference, Las Vegas, June 2010.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2009}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      D. Buscombe \& G. Masselink.
+      {\sl Grain Size Information from the Statistical Properties of Digital Images of Sediment}.
+      SEDIMENTOLOGY 56:421-438, 2009.
+
+    \publication
+      J.A. Warrick {\sl et al.}
+      {\sl Cobble Cam: Grain-size measurements of sand to boulder from digital photographs and autocorrelation analyses}.
+      EARTH SURFACE PROCESSES \& LANDFORMS 34:1811-1821, 2009.
+
+    \publication
+      J. Williams {\sl et al.}
+      {\sl BARDEX (Barrier Dynamics Experiment): taking the beach into the laboratory}.
+      JOURNAL OF COASTAL RESEARCH SI 56:158-162, 2009.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2008}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      G. Masselink {\sl et al.}
+      {\sl Sediment Trend Models Fail to Reproduce Small Scale Sediment Transport Patterns on an Intertidal Beach}.
+      SEDIMENTOLOGY 55:667-687, 2008.
+
+    \publication
+      M. Austin \& D. Buscombe.
+      {\sl Morphological Change and Sediment Dynamics of the Beach Step on a Macrotidal Gravel Beach}.
+      MARINE GEOLOGY 249:167-183, 2008.
+
+    \publication
+      D. Buscombe.
+      {\sl Estimation of Grain Size Distributions and Associated Parameters from Digital Images of Sediment}.
+      SEDIMENTARY GEOLOGY 210:1-10, 2008.
+
+    \publication
+      G. Masselink \& D. Buscombe.
+      {\sl Shifting gravel: A case study of Slapton Sands}.
+      GEOGRAPHY REVIEW 22:27-31, 2008.
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\sl Granular Properties from Digital Images of Sediment: Implications for Coastal Sediment Transport Modelling}.
+      Proceedings of the 31st International Conference on Coastal Engineering (ICCE), Hamburg, 2008.
+
+    \publication
+      A. Ruiz de Alegria {\it et al.}
+      {\it Storm Impacts on a Gravel Beach Using the ARGUS video system}.
+      Proceedings of the 31st International Conference on Coastal Engineering (ICCE), Hamburg, 2008.
+
+    \publication
+      M. Austin {\sl et al.}
+      {\it Groundwater seepage between a gravel barrier beach and a freshwater lagoon}.
+      Proceedings of the 31st International Conference on Coastal Engineering (ICCE), Hamburg, 2008.
+
+    \end{itemize}
+}
+
+\subtopic{\hspace*{-3ex} 2006--2007}{~
+  %\vspace*{\baselineskip}
+  \begin{itemize}[leftmargin=0ex, itemsep=0ex, parsep=.5ex, labelindent=-4ex]
+
+    \publication
+      D. Buscombe {\sl et al.}
+      {\it Field observations of step dynamics on a macrotidal gravel beach}.
+      In Kraus, N., and Rosati, J., (Eds), Proceedings of Coastal Sediments 2007 (Volume 1), 2007.
+
+    \publication
+      D. Buscombe \& G. Masselink.
+      {\it Concepts in Gravel Beach Dynamics}.
+      EARTH SCIENCE REVIEWS 79:33-52, 2006.
+
+  \end{itemize}
+
+}
+
+\end{document}
+
+
+        \item[36] Hamill, D., {\bf Buscombe, D.}, Wheaton, J.M., Melis, T.S., Grams. P.E., 2016, Towards bed texture change detection in large rivers from repeat imaging using recreational grade sidescan sonar {\sl Proceedings of the 8th International Conference on Fluvial Hydraulics}, St. Louis, Missouri, July 2016.\\
+        
+        \item[35] {\bf Buscombe, D.}, Grams. P.E., 2016, Stochasticity of riverbed backscattering, with implications for acoustical classification of non-cohesive sediment using multibeam sonar {\sl Proceedings of the 8th International Conference on Fluvial Hydraulics}, St. Louis, Missouri, July 2016.\\
+
+	\item[34] {\bf 	Buscombe, D.}, 2016, Spatially explicit spectral analysis of point clouds and geospatial data. {\sl COMPUTERS \& GEOSCIENCES} 86, 92-108, 10.1016/j.cageo.2015.10.004.
+
+	\end{list1}
+
+	\subsection{\mysidestyle 2015}
+	\begin{list1}
+		
+	\item[33] {\bf Buscombe, D.}, Grams, P.E., Smith, S.M., 2015, Automated riverbed sediment classification using low-cost sidescan sonar. {\sl JOURNAL OF HYDRAULIC ENGINEERING}, 10.1061/(ASCE)HY.1943-7900.0001079, 06015019.\\
+	
+	\item[32] Davies, E.J., {\bf Buscombe, D.}, Graham, G.W., Nimmo-Smith, W.A.M., 2015, Evaluating Unsupervised Methods to Size and Classify Suspended Particles using Digital in-line Holography, {\sl JOURNAL OF ATMOSPHERIC \& OCEANOGRAPHIC TECHNOLOGY}, 32, 1241 - 1256. doi: 10.1175/JTECH-D-14-00157.1 \\
+
+        \item[31] Grams. P.E., {\bf Buscombe, D.}, Topping, D.J., Hazel, J.E., and Kaplinski, M.A. (2015) Use of Flux and Morphologic Sediment Budgets for Sandbar Monitoring on the Colorado River in Marble Canyon, Arizona. {\sl Proceedings of the 10th Federal Interagency Sedimentation Conference}, Reno, April 2015.\\
+
+        \item[30] {\bf Buscombe, D.}, Grams. P.E., Kaplinski, M.A., Tusso, R.B., and Rubin, D.M. (2015) Hydroacoustic signatures of Colorado riverbed sediments in Marble and Grand Canyons using multibeam sonar. {\sl Proceedings of the 10th Federal Interagency Sedimentation Conference}, Reno, April 2015.\\
+
+        \item[29] {\bf Buscombe, D.}, Grams. P.E., Melis, T.S., Smith, S. (2015) Considerations for unsupervised riverbed sediment characterization using low-cost sidescan sonar: Examples from the Colorado River, AZ and the Penobscot River, ME. {\sl Proceedings of the 10th Federal Interagency Sedimentation Conference}, Reno, April 2015.\\
+
+        \item[28] {\bf Buscombe, D.}, Tusso, R.B., Grams. P.E. (2015) Using oblique digital photography for alluvial sandbar monitoring and low-cost change detection. {\sl Proceedings of the 10th Federal Interagency Sedimentation Conference}, Reno, April 2015.
+	
+	\end{list1}
+	
+	\subsection{\mysidestyle 2014}
+	\begin{list1}
+        \item[27] Puleo, J., Blenkinsopp, C., Conley, D., Masselink, G., Turner, I., Russell, P., {\bf Buscombe, D.}, Howe, D., Lanckriet, T., McCall, R., and Poate, T., 2014, A Comprehensive Field Study of Swash-Zone Processes, Part 1: Experimental Design with Examples of Hydrodynamic and Sediment Transport Measurements. {\sl JOURNAL OF WATERWAY, PORT, COASTAL, \& OCEAN ENGINEERING}, 140, 29–42. 10.1061/(ASCE)WW.1943-5460.0000210.\\
+
+	\item[26]  {\bf Buscombe, D.}, Rubin, D.M., Lacy, J.R., Storlazzi, C., Hatcher, G., Chezar, H., Wyland, R. and Sherwood, C., 2014, Autonomous bed-sediment imaging-systems for revealing temporal variability of grain size. {\sl LIMNOLOGY \& OCEANOGRAPHY: METHODS}, 12, 390 - 406. \\
+
+	\item[25] {\bf Buscombe, D.}, Grams, P.E., Kaplinski, M.A., 2014, Characterizing riverbed sediment using high-frequency acoustics 1: Spectral properties of scattering. {\sl JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE, 119, doi:10.1002/2014JF003189.}.\\
+
+	\item[24] {\bf Buscombe, D.}, Grams, P.E., Kaplinski, M.A., 2014, Characterizing riverbed sediment using high-frequency acoustics 2: Scattering signatures of Colorado River bed sediment in Marble and Grand Canyons. {\sl JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE, 119, doi:10.1002/2014JF003191}.
+
+	\end{list1}
+
+	\subsection{\mysidestyle 2013}
+	\begin{list1}
+        \item[23] {\bf Buscombe, D.}, 2013, Transferable Wavelet Method for Grain Size-Distribution from Images of Sediment Surfaces and Thin Sections, and Other Natural Granular Patterns. {\sl SEDIMENTOLOGY} 60, 1709--1732. 
+
+	\end{list1}
+
+	\subsection{\mysidestyle 2012}
+	\begin{list1}
+	\item[22] Williams, J.J., {\bf Buscombe, D.}, Masselink, G., Turner, I., and Swinkels, C., 2012, Barrier Dynamics Experiment (BARDEX): Aims, Design and Procedures. {\sl COASTAL ENGINEERING} 63, 3-12.\\
+
+	\item[21] {\bf Buscombe, D.}, and Conley, D.C., 2012, Effective Shear Stress of Graded Sediment. {\sl WATER RESOURCES RESEARCH} 48, W05506.\\
+
+	\item[20] {\bf Buscombe, D.}, and Rubin, D.M., 2012, Advances in the Simulation and Automated Measurement of Granular Material, Part 1: Simulations. {\sl JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE} 117, F02001.\\
+
+	\item[19] {\bf Buscombe, D.}, and Rubin, D.M., 2012, Advances in the Simulation and Automated Measurement of Granular Material, Part 2: Direct Measures of Particle Properties. {\sl JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE} 117, F02002.\\
+
+	\item[18] Lacy, J.R., Rubin, D.M. and {\bf Buscombe, D.}, 2012, Currents and sediment transport induced by a tsunami far from its source. {\sl JOURNAL OF GEOPHYSICAL RESEARCH - OCEANS} 117, C09028.\\
+
+	\item[17] Puleo, J.A., Conley, D.C., Masselink, G., Russell, P., Turner, I.L., Blenkinsopp, C., {\bf Buscombe, D.}, Lanckriet, T., McCall, R., and Poate, T. (2012) Comprehensive study of swash-zone hydrodynamics and sediment transport. {\sl Proceedings of the 33rd International Conference on Coastal Engineering}, Santander, July 2012.\\
+
+	\item[16] {\bf Buscombe, D.}, and Conley, D.C. (2012) Schmidt number of sand suspensions under oscillating-grid turbulence. {\sl Proceedings of the 33rd International Conference on Coastal Engineering}, Santander, July 2012.\\
+
+	\item[15] Conley, D.C., {\bf Buscombe, D.}, and Nimmo-Smith, A. (2012) Use of digital holographic cameras to examine the measurement and understanding of sediment suspension in the nearshore. {\sl Proceedings of the 33rd International Conference on Coastal Engineering}, Santander, July 2012.
+
+	\end{list1}
+
+	\subsection{\mysidestyle 2010}
+	\begin{list1}
+	\item[14] {\bf Buscombe, D.}, Rubin, D.M., and Warrick, J.A., 2010, Universal Approximation of Grain Size from Images of Non-Cohesive Sediment. {\sl JOURNAL OF GEOPHYSICAL RESEARCH - EARTH SURFACE} 115, F02015.\\
+
+	\item[13] {\bf Buscombe, D.}, Rubin, D. M., and Warrick, J. A. (2010) An automated and 'universal' method for measuring mean grain size from a digital image of sediment. {\sl Proceedings of the 9th Federal Interagency Sedimentation Conference}, Las Vegas June 2010.
+
+	\end{list1}
+	
+	\subsection{\mysidestyle 2009}
+	\begin{list1}
+	\item[12] {\bf Buscombe, D.}, and Masselink, G., 2009, Grain Size Information from the Statistical Properties of Digital Images of Sediment. {\sl SEDIMENTOLOGY} 56, 421-438 \\
+
+	\item[11] Warrick, J.A., Rubin, D.M., Ruggiero, P., Harney, J., Draut, A.E., and {\bf Buscombe, D.}, 2009, Cobble Cam: Grain-size measurements of sand to boulder from digital photographs and autocorrelation analyses. {\sl EARTH SURFACE PROCESSES \& LANDFORMS} 34, 1811-1821.\\
+
+	\item[10] Williams, J., Masselink, G., {\bf Buscombe, D.}, Turner, I., Matias, A., Ferreira, O., Meltje, N., Bradbury, A., Albers, T., and Pan, S., 2009, BARDEX (Barrier Dynamics Experiment): taking the beach into the laboratory. {\sl JOURNAL OF COASTAL RESEARCH} SI 56, 158-162.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
