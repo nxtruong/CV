@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.20)  14 NOV 2016 16:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.20)  15 NOV 2016 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -828,15 +828,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 676.
  [6]
 \c@PubNumber=\count122
- [7] AED: lastpage setting LastPage [8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 994.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 994.
+ [7] [8] AED: lastpage setting LastPage [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1016.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1016.
  (./CV.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 994.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 994.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1016.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1016.
+
 Package rerunfilecheck Info: File `CV.out' has not changed.
 (rerunfilecheck)             Checksum: 9AB512104020CD674ACF2CEB0A1383F5;599.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 994.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1016.
  ) 
 Here is how much of TeX's memory you used:
  7117 strings out of 494953
@@ -857,7 +858,7 @@ hare/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmssdc10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb>
-Output written on CV.pdf (9 pages, 329456 bytes).
+Output written on CV.pdf (9 pages, 330459 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  155 compressed objects within 2 object streams
