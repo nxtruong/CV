@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.20)  21 NOV 2016 21:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.20)  28 NOV 2016 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -754,90 +754,89 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 213.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 214.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 213.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 214.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 213.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 214.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 213
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 214
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 213
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 214
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 213.
+(Font)              <14.4> on input line 214.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 213.
+(Font)              <10> on input line 214.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 213.
-LaTeX Font Info:    Try loading font information for U+wasy on input line 213.
+(Font)              <7> on input line 214.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 214.
 
 (/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
-Overfull \hbox (25.60753pt too wide) in paragraph at lines 213--213
+Overfull \hbox (25.60753pt too wide) in paragraph at lines 214--214
 []$[]$ 
  []
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 213.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 214.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 213--213
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
 
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 255.
+(Font)              <5> on input line 256.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 500.
+(Font)              <9> on input line 501.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 500.
+(Font)              <6> on input line 501.
 
-Underfull \hbox (badness 1014) in paragraph at lines 506--506
+Underfull \hbox (badness 1014) in paragraph at lines 507--507
 \T1/lmr/m/n/10 School of Earth Sci-ences & En-vi-ron-men-tal Sus-tain-abil-ity,
  North-ern Ari-zona Uni-ver-sity,
  []
 
 [4] [5]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 675.
- [6]
+(Font)              <8> on input line 676.
 \c@PubNumber=\count122
- [7] [8] AED: lastpage setting LastPage [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1027.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1027.
+ [6] [7] [8] AED: lastpage setting LastPage [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1024.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1024.
  (./CV.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1027.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1027.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1024.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1024.
 
 Package rerunfilecheck Info: File `CV.out' has not changed.
 (rerunfilecheck)             Checksum: 9AB512104020CD674ACF2CEB0A1383F5;599.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1027.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1024.
  ) 
 Here is how much of TeX's memory you used:
  7117 strings out of 494953
@@ -858,7 +857,7 @@ hare/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmssdc10.pfb></usr/share/texmf/fonts/type1/public
 /lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb>
-Output written on CV.pdf (9 pages, 330875 bytes).
+Output written on CV.pdf (9 pages, 331010 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  155 compressed objects within 2 object streams
